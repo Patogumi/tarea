@@ -9,8 +9,25 @@
 @endsection
 
 @section('content')
-      <h1>SongOkU</h1>
-      <h2>Tu cancionero saijajin</h2>
-      <p>¡Acá te presentamos los éxitos más excitados!</p>
-      <p>De {{ $artista }}</p>
+    <h1>SongOkU</h1>
+    <h2>Para los fanáticos de la Música</h2>
+    <p>¿Quieres saber como le va a tu artista reaglón?</p>
+    <form method="POST" action="{{ route('notas.crear') }}">
+        @csrf
+        <input
+            type="text"
+            name="nombre"
+            placeholder="Nombre"
+            class="form-control mb-2"
+        />
+        <input
+            type="text"
+            name="descripcion"
+            placeholder="Descripcion"
+            class="form-control mb-2"
+        />
+        <button class="btn btn-primary btn-block" type="submit">Enviar</button>
+    </form>
+
+
 @endsection

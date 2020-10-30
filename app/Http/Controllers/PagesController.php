@@ -13,4 +13,10 @@ class PagesController extends Controller
     public function app(){
         return view('songoku');
     }
+
+    public function crear(Request $request){
+        //echo "Hello world!<br>";
+        return $request->all();
+    }
+
 }
