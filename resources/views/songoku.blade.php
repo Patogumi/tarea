@@ -12,4 +12,5 @@
       <h1>SongOkU</h1>
       <h2>Tu cancionero saijajin</h2>
       <p>¡Acá te presentamos los éxitos más excitados!</p>
+      <p>De {{ $artista }}</p>
 @endsection
