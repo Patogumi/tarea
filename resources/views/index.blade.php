@@ -12,6 +12,7 @@
       <h1>SongOkU</h1>
       <h2>Tu cancionero saijajin</h2>
       <p><a href="{{ route('app') }}">Ingresa aquí</a></p>
+      <p><a href="{{ route('dbcheck') }}">Revisar la Base de Datos de Patito</a></p>
 @endsection
 
 
