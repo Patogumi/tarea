@@ -11,7 +11,7 @@
 @section('content')
     <h1>SongOkU</h1>
     <h2>Para los fanáticos de la Música</h2>
-    <p>¿Quieres saber como le va a tu artista reaglón?</p>
+    <p>¿Quieres saber como le va a tu artista regalón?</p>
     <form method="POST" action="{{ route('notas.crear') }}">
         @csrf
         <input

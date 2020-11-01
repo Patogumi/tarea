@@ -13,6 +13,7 @@
       <h2>Tu cancionero saijajin</h2>
       <p><a href="{{ route('app') }}">Ingresa aquí</a></p>
       <p><a href="{{ route('dbcheck') }}">Revisar la Base de Datos de Patito</a></p>
+      <p><a href="{{ route('search') }}">Revisar la Base de Datos de Patito</a></p>
 @endsection
 
 

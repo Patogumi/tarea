@@ -29,11 +29,12 @@ class PagesController extends Controller
     public function jsonapi(){
         $client = new Client();
 
-        $response = $client->request('GET', 'https://api.deezer.com/search?q=eminem');
+        $response = $client->request('GET', 'https://api.deezer.com/artist/647/top?limit=10');
     //	$statusCode = $response->getStatusCode();
         $contents = (string) $response->getBody();
         $json_response=json_decode($contents, true);
-        return $json_response;
-    }
+    //  return $json_response;
+        return view('info',compact('json_response'));
 
+    }
 }

@@ -24,7 +24,7 @@
         <tbody>
         @foreach($log as $item)
             <tr>
-                <th scope="row">{{$item->id}}</th>
+                <th scope="row">{{ $item->id }}</th>
                 <td>{{$item->nombre_artista}}</td>
                 <td>{{$item->fecha_busqueda}}</td>
                 <td> </td>
