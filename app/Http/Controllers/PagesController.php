@@ -35,7 +35,7 @@ class PagesController extends Controller
         }
           
         $client = new Client();
-        $enlace_consulta = str_replace("numero_de_artista", $art, "https://api.deezer.com/artist/numero_de_artista/top?limit=10");
+        $enlace_consulta = str_replace("id_artista", $art, "https://api.deezer.com/artist/id_artista/top?limit=10");
 
         $response = $client->request('GET', $enlace_consulta);
         //  Lo comentado sirve para detectar cuando la consulta viene mala, si vuelve el valor "200" no hay drama
@@ -50,14 +50,140 @@ class PagesController extends Controller
             $logNuevo->fecha_busqueda = date("Y-m-d H:i:s");
             $logNuevo->save();
         }
-        
-        return view('info',compact('json_response'));
+        $a=0;
+        foreach ($json_response["data"] as $avanti)
+        {
+            $titulo=$avanti['title'];
+            $ranking=$avanti['rank'];
+            $titulo_breve=substr($titulo,0,10);
+            $ranking_breve=substr($ranking,0,12);
+            $datos[$a]=array(
+                "category"=> $titulo_breve,
+                "column-1"=> $ranking_breve);
+
+            $a=$a+1;
+        };
+
+
+
+
+ //       $datos= [array(
+  //          "category"=> "category 1",
+  //          "column-1"=> 8100
+  //      )];
+
+        $arr = array(
+            "type"=> "serial",
+            "categoryField"=> "category",
+            "startDuration"=> 1,
+            "handDrawn"=> false,
+            "theme"=> "chalk",
+            "categoryAxis"=>array(
+                "gridPosition"=> "start"
+            ),
+            "trendLines"=> [],
+            "graphs"=> [
+                array(
+                    "balloonText"=> "[[title]] de [[category]]:[[value]]",
+                    "bullet"=> "round",
+                    "id"=> "AmGraph-1",
+                    "title"=> "Reproducciones",
+                    "valueField"=> "column-1"
+                )
+            ],
+            "guides"=> [],
+            "valueAxes"=> [
+                array(
+                    "id"=> "ValueAxis-1",
+                    "title"=> "Veces escuchada"
+                )
+            ],
+            "allLabels"=> [],
+            "balloon"=> array(),
+            "legend"=> array(
+                "enabled"=> true,
+                "tabIndex"=> -2,
+                "useGraphSettings"=> true
+            ),
+            "titles"=> [
+                array(
+                    "id"=> "Title-1",
+                    "size"=> 15,
+                    "text"=> "Top 10 del Artista",
+                )
+            ],
+            "dataProvider"=> $datos
+        );
+
+
+        $vari = json_encode($arr);
+        //return $vari;
+        $json_vari=json_decode($vari, true);
+
+        return view('info',compact('json_response','vari'));
 
     }
 
     public function crearo(Request $request){
         //echo "Hello world!<br>";
         return $request->all();
+    }
+
+    public function am(){
+
+        $arr = array(
+            "type"=> "serial",
+            "categoryField"=> "category",
+            "startDuration"=> 1,
+            "handDrawn"=> false,
+            "theme"=> "chalk",
+            "categoryAxis"=>array(
+                "gridPosition"=> "start"
+            ),
+            "trendLines"=> [],
+            "graphs"=> [
+                array(
+                    "balloonText"=> "[[title]] of [[category]]:[[value]]",
+                    "bullet"=> "round",
+                    "id"=> "AmGraph-1",
+                    "title"=> "graph 1",
+                    "valueField"=> "column-1"
+                )
+            ],
+            "guides"=> [],
+            "valueAxes"=> [
+                array(
+                    "id"=> "ValueAxis-1",
+                    "title"=> "Axis title"
+                )
+            ],
+            "allLabels"=> [],
+            "balloon"=> array(),
+            "legend"=> array(
+                "enabled"=> true,
+                "tabIndex"=> -2,
+                "useGraphSettings"=> true
+            ),
+            "titles"=> [
+                array(
+                    "id"=> "Title-1",
+                    "size"=> 15,
+                    "text"=> "Chart Title",
+                )
+            ],
+            "dataProvider"=> [
+                array(
+                    "category"=> "category 1",
+                    "column-1"=> 8
+                ),
+            ]
+        );
+
+        $vari = json_encode($arr);
+        //return $vari;
+        $json_vari=json_decode($vari, true);
+        return $json_vari;
+
     }
 
 }

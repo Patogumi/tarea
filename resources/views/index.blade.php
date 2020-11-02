@@ -1,5 +1,8 @@
 @extends('template')
 
+@section('special')
+@endsection
+
 @section('title', 'SongOkU')
 
 @section('sidebar')
@@ -13,7 +16,8 @@
       <h2>Tu cancionero Saijajin</h2>
       <p><a href="{{ route('app') }}">Ingresa aquí</a></p>
       <p><a href="{{ route('dbcheck') }}">Revisar la Base de Datos de Patito</a></p>
-      <p><a href="{{ route('search') }}">Revisar la Base de Datos de Patito</a></p>
+      <p><a href="{{ route('search') }}">La api funcionandoooo</a></p>
+      <p><a href="{{ route('am') }}">Una pruebita</a></p>
 @endsection
 
 

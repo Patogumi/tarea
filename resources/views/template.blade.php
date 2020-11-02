@@ -8,6 +8,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
+		<!-- amCharts custom font -->
+		<link href='https://fonts.googleapis.com/css?family=Covered+By+Your+Grace' rel='stylesheet' type='text/css'>
+		
+		<!-- amCharts javascript sources -->
+		<script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+		<script type="text/javascript" src="https://www.amcharts.com/lib/3/serial.js"></script>
+		<script type="text/javascript" src="https://www.amcharts.com/lib/3/themes/chalk.js"></script>
+		
+@yield('special')
+
 
 
     <title>App Test - @yield('title')</title>
@@ -33,11 +43,9 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <!-- AMCharts -->
-    <script src="https://cdn.amcharts.com/lib/3/amcharts.js"></script>
-    <script src="https://cdn.amcharts.com/lib/3/serial.js"></script>
-    <script src="https://cdn.amcharts.com/lib/3/themes/light.js"></script>
+
     <script src="https://cdn.amcharts.com/lib/3/plugins/dataloader/dataloader.min.js"></script>
-    <script src="https://cdn.amcharts.com/lib/3/maps/js/worldLow.js"></script>
+
 
   </body>
 </html>

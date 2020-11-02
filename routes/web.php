@@ -14,7 +14,7 @@ Route::get('/songoku', 'PagesController@app')->name('app');
 
 Route::post('/vivapatricio', 'PagesController@crear')->name('crear');
 
-
+Route::get('/am', 'PagesController@am')->name('am');
 
 
 

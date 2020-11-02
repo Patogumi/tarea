@@ -2,6 +2,20 @@
 
 @section('title', 'SongOkU')
 
+@section('special')
+<!-- amCharts javascript code -->
+    <script type="text/javascript">
+        AmCharts.makeChart("chartdiv",
+            
+            
+            
+            @php echo $vari @endphp
+        );
+    </script>
+@endsection
+
+
+
 @section('sidebar')
     @parent
 
@@ -55,6 +69,8 @@
             </tr>
         </tbody>
         </table>
+
+        <div id="chartdiv" style="width: 100%; height: 400px; background-color: #282828;" ></div>
 
 
 @endsection
