@@ -6,9 +6,6 @@
 <!-- amCharts javascript code -->
     <script type="text/javascript">
         AmCharts.makeChart("chartdiv",
-            
-            
-            
             @php echo $vari @endphp
         );
     </script>

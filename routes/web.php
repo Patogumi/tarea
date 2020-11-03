@@ -23,3 +23,6 @@ Route::get('/am', 'PagesController@am')->name('am');
 //Route::get('fotos/{numero?}',function($numero = 'sin número'){
 //    return 'Estás en la galería de fotos: '.$numero;
 //})->where('numero', '[0-9]+');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
