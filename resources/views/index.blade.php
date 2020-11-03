@@ -7,17 +7,15 @@
 
 @section('sidebar')
     @parent
-
-    <p>Lo que va al final de la barrita :)</p>
+    <br>
+    <p>Página de Bienvenida</p>
 @endsection
 
 @section('content')
-      <h1>SongOkU</h1>
-      <h2>Tu cancionero Saijajin</h2>
-      <p><a href="{{ route('app') }}">Ingresa aquí</a></p>
-      <p><a href="{{ route('dbcheck') }}">Revisar la Base de Datos de Patito</a></p>
-      <p><a href="{{ route('search') }}">La api funcionandoooo</a></p>
-      <p><a href="{{ route('am') }}">Una pruebita</a></p>
+    <h3>Página de Bienvenida</h3>
+    <p>Es proyecto está hecho para aprender Laravel. Está construido en la versión 5.7</p>
+    <p>Junto con lo anterior, su propósito se extiende al uso de componentes de Vue2, Eloquent, Blade, Amchart3, Excel-Laravel2 y (¿Axios?)</p>
+
 @endsection
 
 

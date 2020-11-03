@@ -27,7 +27,16 @@
         <div class="row">
             <div class="col-sm-3 col-md-2">
                 @section('sidebar')
-                    <p>Acá va la barra lateral.</p>
+                    <h2>SonGokU</h2>
+                    <h4>Tu cancionero Saijajin</h4>
+                    <ul>
+                      <li><a href="{{ route('inicio') }}">Bienvenida</a></li>
+                      <li><a href="{{ route('search') }}">La aplicación</a></li>
+                      <li><a href="{{ route('dbcheck') }}">Revisión de los datos almacenados</a></li>
+                      <li><a href="{{ route('app') }}">Para jugar con formularios</a></li>
+                      <li><a href="{{ route('am') }}">Una pruebita básica</a></li>
+                    </ul>
+                    
                 @show
             </div>
             <div class="col-9">

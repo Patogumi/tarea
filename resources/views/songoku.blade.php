@@ -4,14 +4,13 @@
 
 @section('sidebar')
     @parent
-
-    <p>Lo que va al final de la barrita :)</p>
+    <br>
+    <p>La aplicación</p>
 @endsection
 
 @section('content')
-    <h1>SongOkU</h1>
-    <h2>Para los fanáticos de la Música</h2>
-    <p>¿Quieres saber como le va a tu artista regalón?</p>
+    <h3>La aplicación</h3>
+    <p>¿Quieres saber como le va a tu artista regalón? ¿Graficar sus éxitos y disfrutar de una planilla? ¡Dale! </p>
     <form method="POST" action="{{ route('crear') }}">
         @csrf
         <input

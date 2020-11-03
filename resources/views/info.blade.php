@@ -16,23 +16,22 @@
 @section('sidebar')
     @parent
 
-    <p>Acá está el buscador</p>
+    <p>La aplicación</p>
 @endsection
 
 @section('content')
-    <h1>SongOkU</h1>
-    <h2>Para los fanáticos de la Música</h2>
-    <p>¿Quieres saber como le va a tus artistas favoritos?</p>
+    <h3>La aplicación</h3>
+    <p>¿Quieres saber como le va a tu artista regalón? ¿Graficar sus éxitos y disfrutar de una planilla? ¡Dale! </p>
 
     <form method="POST" action="{{ route('searcho') }}">
         @csrf
         <input
             type="text"
             name="valor"
-            placeholder="Escribe acá poh mierda"
-            class="form-control mb-2"
+            placeholder="Black Sabbath"
+            class="form-control m3-2 col-3"
         />
-        <button class="btn btn-primary btn-block" type="submit">Enviar</button>
+        <button class="btn btn-primary btn-block m-3 col-2" type="submit">Revisar</button>
     </form>
 
     <table class="table table-dark">

@@ -2,16 +2,16 @@
 
 @section('title', 'SongOkU')
 
-@section('sidebar')
+@section('siderbar')
     @parent
-
-    <p>Acá se revisar la base de datos.</p>
+        <br>
+        <p>Ver la Base de Datos</p>
 @endsection
 
 @section('content')
-    <h1>SongOkU</h1>
-    <h2>Para los fanáticos de la Música</h2>
-    <p>¿Quieres revisar la base de datos de patito? :P</p>
+    <h3>Ver la Base de Datos</h3>
+    <p>Estas son las búsquedas que se han hecho hasta el momento: </p>
+
     <table class="table table-hover table-dark">
         <thead>
             <tr>
