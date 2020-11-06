@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+<!-- Esta página es sólo un ejemplo de como se contruye el arreglo de un gráfico en AMCharts -->    
 @php
 
     $vari=  {
