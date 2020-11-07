@@ -30,6 +30,7 @@
                 <td> </td>
             </tr>
         @endforeach
+        <a href="{{route ('exportacion')}}">Exportación</a>
         </tbody>
         </table>
 

@@ -34,6 +34,8 @@
         <button class="btn btn-primary btn-block m-3 col-2" type="submit">Revisar</button>
     </form>
 
+    <a href="{{route ('exportar')}}">Exportación</a>
+
     <table class="table table-dark">
         <thead>
             <tr>

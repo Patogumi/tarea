@@ -8,11 +8,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Ruta de Bienvenida
 Route::get('/', 'PagesController@index')->name('inicio');
 
-// Ruta de la Aplicacion
+// Rutas de la Aplicacion
 
-Route::get('/jsonapi', 'PagesController@jsonapi')->name('search');
-Route::post('/jsonapi', 'PagesController@jsonapi')->name('searcho');
+Route::get('/jsonapi', 'PagesController@jsonapi')->name('search')->middleware('auth');
+Route::post('/jsonapi', 'PagesController@jsonapi')->name('searcho')->middleware('auth');
 Route::get('/am', 'PagesController@am')->name('am');
+Route::get('/exportar', 'ExcelController@exportar')->name('exportar')->middleware('auth');
 
 //Route::post('/crearo', 'PagesController@crearo')->name('crearo');
 
@@ -25,7 +26,7 @@ Route::get('/songoku', 'PagesController@app')->name('app');
 Route::post('/vivapatricio', 'PagesController@crear')->name('crear');
 
 //Ruta secreta para exportar Usuarios
-Route::get('users/export/', 'UsersController@export');
+Route::get('users/export/', 'UsersController@export')->name('exportacion');
 
 
 
@@ -35,3 +36,7 @@ Route::view('welcome','welcome');
 //    return 'Estás en la galería de fotos: '.$numero;
 //})->where('numero', '[0-9]+');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

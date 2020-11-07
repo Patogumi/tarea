@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App;
 use GuzzleHttp\Client;
+
 
 class PagesController extends Controller
 {
@@ -22,7 +24,6 @@ class PagesController extends Controller
     }
 
     public function crear(Request $request){
-        //echo "Hello world!<br>";
         return $request->all();
     }
 
@@ -48,6 +49,7 @@ class PagesController extends Controller
             $logNuevo = new App\Log_reporte;
             $logNuevo->nombre_artista = $json_response["data"]["0"]['artist']['name'];
             $logNuevo->fecha_busqueda = date("Y-m-d H:i:s");
+            $logNuevo->user_id = auth()->id();
             $logNuevo->save();
         }
         $a=0;
@@ -63,14 +65,6 @@ class PagesController extends Controller
 
             $a=$a+1;
         };
-
-
-
-
- //       $datos= [array(
-  //          "category"=> "category 1",
-  //          "column-1"=> 8100
-  //      )];
 
         $arr = array(
             "type"=> "serial",
@@ -115,13 +109,20 @@ class PagesController extends Controller
             "dataProvider"=> $datos
         );
 
+        //Lo siguiente es para recordar el último artista buscado por el usuario registrado
+        $id = Auth::id();
+        $usuario = App\User::find($id);
+        $usuario->nombre_artista = $json_response["data"]["0"]['artist']['name'];
+        $usuario->id_artista = $art;
+        $usuario->save();
+
+
+
 
         $vari = json_encode($arr);
         //return $vari;
         $json_vari=json_decode($vari, true);
-
         return view('info',compact('json_response','vari'));
-
     }
 
     public function crearo(Request $request){
